@@ -1,10 +1,10 @@
 # django-shop-app
 1. Chapter 7
-  1.1. Shop
+  * Shop
     * Build app with completed homepage
     * Build detail page
     * Improve css
-  1.2. Cart
+  * Cart
     * Doing
 1. Chapter 8
 1. Chapter 9
