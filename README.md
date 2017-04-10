@@ -1,6 +1,6 @@
 # django-shop-app
 1. Chapter 7
-  &nbsp;&nbsp;1. Shop
+  1.&nbsp;&nbsp; Shop
     &nbsp;&nbsp;&nbsp;&nbsp;* Build app with completed homepage
     &nbsp;&nbsp;&nbsp;&nbsp;* Build detail page
     &nbsp;&nbsp;&nbsp;&nbsp;* Improve css
