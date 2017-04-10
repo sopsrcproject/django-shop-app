@@ -1,0 +1,88 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block title %}
+    {% if category %}
+        {{ category.name }}
+    {% else %}
+        Products
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <style type="text/css">
+        .product-list #checkout-title {
+            font-weight: 600;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .product-list #checkout-subtitle {
+            text-align: center;
+            color: #939393;
+            font-size: 24px;
+            font-weight: 400;
+        }
+
+        .product-list #divider {
+            border-bottom: 1px solid #e0e0e0;
+            margin: 40px 0 40px;
+            max-width: 50px;
+            transform: translateX(-50%);
+            margin-left: 50%;
+        }
+
+        /* CATEGORIES */
+        .shop-categories {
+            display: table;
+            margin: 20px auto;
+            margin-bottom: 40px;
+        }
+
+        .shop-categories span {
+            padding: 5px 8px;
+        }
+
+        .shop-categories span a {
+            padding: 6px 15px;
+            border-radius: 15px;
+            color: #aaa;
+            background-color: #fff;
+            border: 1px solid #e6e6e6;
+        }
+
+        .shop-categories span a:hover {
+            background-color: #f5614d;
+            color: #fff;
+            border: 1px solid #f5614d;
+        }
+
+        .shop-categories span.selected a {
+            background-color: #f5614d;
+            color: #fff;
+            border: none;
+        }
+    </style>
+
+    <div class="product-list" id="main" >
+        <h1 id="checkout-title">Check out what's new</h1>
+        <h1 id="checkout-subtitle">Latest of the trends we have to offer</h1>
+        <div id="divider"></div>
+        <div class="row shop-products">
+            <div class="shop-categories">
+                <span {% if not category %}class="selected"{% endif %}>
+                    <a href="{% url 'shop:product_list' %}">All</a>
+                </span>
+                {% for c in categories %}
+                    <span {% if category.slug == c.slug %} class="selected" {% endif %}>
+                    <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                    </span>
+                {% endfor %}
+                <!-- <li role="separator" class="divider"></li> -->
+            </div>
+            {% for product in products %}
+                {% include 'shop/product/snippet/product_content.html' %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

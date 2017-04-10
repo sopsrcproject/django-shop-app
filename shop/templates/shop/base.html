@@ -1,0 +1,259 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>{% block title %}My shop{% endblock %}</title>
+        <link href="{% static "css/base.css" %}" rel="stylesheet">
+
+        <!-- Font Monsterat -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- JQuery -->
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+        <!-- Style -->
+        <style type="text/css">
+          body {
+            /*min-height: 2000px;*/
+            padding-top: 50px;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fff;
+          }
+          ul {
+            list-style: none;
+          }
+
+          a {
+            transition: all 0.3s ease-in-out;
+          }
+
+          a:hover {
+            text-decoration: none;
+          }
+
+          /* MAIN HEADER */
+          #shop-header {
+            background-color: #444;
+            background-image: none;
+            border-bottom: none;
+            opacity: .9;
+          }
+
+          .navbar {
+            margin-bottom: 0;
+          }
+
+          .navbar-header {
+            margin-right: 40px !important;
+          }
+
+          .nav.navbar-nav {
+            font-weight: 600;
+          }
+
+          .navbar-brand {
+            text-shadow: none;
+            text-transform: uppercase;
+          }
+
+          a.navbar-brand:hover {
+            background-color: #fff !important;
+            transition: all 0.3s ease-in-out;
+          }
+
+          .navbar-default .navbar-brand {
+            color: #fff;
+            font-weight: 700;
+            font-size: 23px;
+            font-family: 'Montserrat', sans-serif;
+          }
+
+          .navbar-nav>li>a {
+            text-shadow: none;
+            font-size: 15px;
+            color: #fff;
+          }
+
+          .navbar-default .navbar-nav>li>a {
+            color: #fff;
+          }
+
+          .navbar-default .navbar-nav>li>a:hover {
+            background-color: #fff !important;
+            transition: all 0.3s ease-in-out;
+          }
+
+          .navbar-nav>li>.dropdown-menu {
+            padding: 0;
+          }
+
+          .dropdown-menu {
+            opacity: .8;
+          }
+
+          .dropdown-menu>li>a {
+            min-height: 50px;
+            line-height: 50px;
+            font-weight: 600;
+            background-color: #444;
+            color: #fff;
+          }
+
+          .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
+            background-color: #fff;
+            color: #444;
+            background-image: none;
+          }
+
+          /* CART */
+          .cart {
+            line-height: 50px;
+            color: #fff;
+          }
+
+          #cart-number {
+            width: 16px;
+            height: 16px;
+            padding: 2px;
+            border-radius: 7.5px;
+            text-align: center;
+            background-color: #e83a30;
+            position: absolute;
+            top: 7.5px;
+            right: 62.5px;
+            line-height: 13px;
+            font-size: 10px;
+          }
+
+          /* Shop Cover */
+          #shop-cover {
+            z-index: -1;
+          }
+
+          #shop-cover .shop-main-text, .discount-text {
+            position: absolute;
+            top: 280px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+          }
+
+          #shop-cover .discount-text#discount-content {
+            font-weight: 700;
+            font-size: 30px;
+            transform: translateX(-50%) translateY(-50%);
+          }
+
+          #shop-cover .discount-text#discount-description {
+            font-weight: 900;
+            font-size: 40px;
+            top: 320px;
+          }
+
+          /* MAIN CONTENT */
+          #content {
+            padding-bottom: 60px;
+          }
+
+          /* FOOTER */
+          #shop-footer {
+            background-image: url('https://cdn.jevelin.shufflehound.com/wp-content/uploads/sites/9/2016/11/Footer.jpg');
+            background-size: cover;
+            background-position: 50% 50%;
+
+            position: absolute;
+            min-height: 300px;
+            width: 100%;
+          }
+
+          .footer-content {
+            background-color: rgba(38,38,38,0.6);
+            color: #e3e3e3;
+            min-height: 300px;
+            height: 100%;
+            padding: 40px;
+          }
+
+          .footer-title {
+            margin-top: 0;
+            text-align: center;
+            font-weight: 700;
+            font-size: 40px;
+          }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top" id="shop-header">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/">PN Shop</a>
+            </div>
+
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li {% if not category %}class="selected"{% endif %}>
+                        <a href="{% url 'shop:product_list' %}">All</a>
+                    </li>
+                    {% for c in categories %}
+                        <li {% if category.slug == c.slug %} class="selected" {% endif %}>
+                        <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                        </li>
+                    {% endfor %}
+                    <!-- <li role="separator" class="divider"></li> -->
+                  </ul>
+                </li>
+              </ul>
+
+              <div class="cart pull-right">
+                <span class="glyphicon glyphicon-shopping-cart">
+                </span>
+                <div id="cart-number">0</div>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <div id="shop-cover">
+          <img src="https://cdn.jevelin.shufflehound.com/wp-content/uploads/sites/9/2016/11/Slide_1.jpg" width="100%">
+          <img class="shop-main-text" src="https://jevelin.shufflehound.com/shop1/wp-content/uploads/sites/9/2016/11/Frame.png">
+          <div class="discount-text" id="discount-content">
+            Up to 50% off
+          </div>
+          <div class="discount-text" id="discount-description">
+            Discounts on summer collection
+          </div>
+        </div>
+
+        <div class="container" id="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        <div id="shop-footer">
+          <div class="footer-content">
+            <h1 class="footer-title">THIS IS FOOTER</h1>
+          </div>
+        </div>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </body>
+</html>
